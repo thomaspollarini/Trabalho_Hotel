@@ -1,0 +1,5 @@
+Código;Desc;Valor;Adulto;Criança
+2;normal;150.99;2;3
+3;pequena;49.99;1;0
+4;4;4.00;4;4
+1;Foda;290.50;2;3

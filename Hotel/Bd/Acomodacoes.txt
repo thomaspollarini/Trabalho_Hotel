@@ -1,0 +1,4 @@
+Código;Descrição;Facilidades;CódigoCategoria
+1;foda;a;1
+2;normal;sla;2
+3;pequena;nada;3

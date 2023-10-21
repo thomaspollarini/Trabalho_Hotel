@@ -1,0 +1,17 @@
+papa;Nome
+988270952;Telefone
+thomassantospallarini;Email
+thomas;Nome Responsavel
+998159626;Telefone Responsavel
+av 21 de abril;Rua
+393;Numero
+apto 302;Complemento
+centro;Bairro
+Divi;Cidade
+MG;Estado
+12;Hora checkin
+8;Hora checkout
+35.000000;Margem lucro
+132;Inscrição Estadual
+poll;Razão Social
+1234123;CNPJ

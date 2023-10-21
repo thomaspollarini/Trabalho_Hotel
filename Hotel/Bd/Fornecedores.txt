@@ -1,0 +1,4 @@
+Código;Nome;Razão Social;Inscrição Estadual;CNPJ;Telefone;Email;Endereço
+1;abc;slla;11234;1239;99842;abc@abc.com;n sei;0;rodovia;longe;formiga;mg;
+2;bh;0924;320;132452;9984721;bh@hot.com;abilio;111;la em cima;sagrado;formiga;mg;
+3;3;3;3;3;3;3;3;3;3;3;3;3;

@@ -1,3 +1,3 @@
 # Trabalho_Hotel
 
-Apenas a primeira parte foi implementada até o momento.
+Todos os modulos foram implementados de acordo com a minha interpretação

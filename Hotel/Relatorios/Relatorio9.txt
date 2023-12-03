@@ -1,0 +1,2 @@
+Código,Descrição,EstoqueMin,Estoque,Custo,Venda
+2,Chocolate,15,30,3.00,4.40

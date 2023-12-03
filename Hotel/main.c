@@ -1,13 +1,16 @@
 #include "bancoDados.h"
-#include "service.h"
+#include "serviceCadastros.h"
 #include "util.h"
+#include "relatorio.h"
 
-/*
+/* Integrantes: Thomas Santos Pollarini
+ *              Jean Claudio Teixeira
+ *              Ana Luiza Ramos
  * 
  */
 
 int main(int argc, char** argv) {
-    
+
     FILE *arq=fopen(".//Bd//Texto.txt","r");
     if(arq==NULL){
         arq=fopen(".//Bd//Binario.bin","rb");
@@ -40,6 +43,7 @@ int main(int argc, char** argv) {
                         
             case 1:
                 if(verifica_Acesso(adm,op)==1){ //verifica acesso do operador
+                    
                     while(op!=0){                            //menu de cadastro
                         printf("|=====CADASTROS E GESTÃO DE DADOS======|\n"
                                "|1 - Hotel                             |\n"
@@ -130,7 +134,7 @@ int main(int argc, char** argv) {
                                         break;    
 
                                         default:
-                                            printf("!==CARACTER INVÁLIDO==!\nn");
+                                            printf("!==CARACTER INVÁLIDO==!\n\n");
                                         break;   
                                     }
                                 }    
@@ -216,7 +220,7 @@ int main(int argc, char** argv) {
                                         break;    
 
                                         default:
-                                            printf("!==CARACTER INVÁLIDO==!\nn");
+                                            printf("!==CARACTER INVÁLIDO==!\n\n");
                                         break;   
                                     }
                                 }    
@@ -301,7 +305,7 @@ int main(int argc, char** argv) {
                                         break;    
 
                                         default:
-                                            printf("!==CARACTER INVÁLIDO==!\nn");
+                                            printf("!==CARACTER INVÁLIDO==!\n\n");
                                         break;   
                                     }
                                 }    
@@ -344,7 +348,7 @@ int main(int argc, char** argv) {
                                         break;    
 
                                         default:
-                                            printf("!==CARACTER INVÁLIDO==!\nn");
+                                            printf("!==CARACTER INVÁLIDO==!\n\n");
                                         break;   
                                     }
                                 }    
@@ -378,7 +382,7 @@ int main(int argc, char** argv) {
                                "|1 - Fazer reserva           |\n"
                                "|2 - Cancelar reserva        |\n"
                                "|3 - Ver Dados de Reservas   |\n"
-                               "|0 - voltar                  |\n"
+                               "|0 - Voltar                  |\n"
                                "|Digite uma opção para prosseguir: ");
                         scanf("%d",&op);
                         system("clear");
@@ -414,7 +418,173 @@ int main(int argc, char** argv) {
             
             case 3:
                 if(verifica_Acesso(adm,op)==1){
-                    
+                    while(op!=0){
+
+                        printf("|==========TRANSAÇÕES==========|\n"
+                               "|1 - CheckIn                   |\n"
+                               "|2 - Fazer CheckOut            |\n"
+                               "|3 - Saída de produtos         |\n"
+                               "|4 - Entrada de produtos       |\n"
+                               "|5 - Controle de caixa         |\n"
+                               "|6 - Contas a Receber          |\n"
+                               "|7 - Contas a Pagar            |\n"
+                               "|0 - Voltar                    |\n"
+                               "|Digite uma opção para prosseguir: ");
+                        scanf("%d",&op);
+                        system("clear");
+
+                        switch(op){
+
+                            case 1:
+                                while(op!=0){                              //menu checkin
+                                    printf("|============CHECKIN===========|\n"
+                                           "|1 - Cadastrar                 |\n"
+                                           "|2 - Ver Dados Cadastrados     |\n"
+                                           "|0 - Voltar                    |\n"
+                                           "|Digite uma opção para prosseguir: ");
+                                    scanf("%d",&op);
+                                    system("clear");
+
+                                    switch(op){
+
+                                        case 1:
+                                            cadastrar_CheckIn();    //função para cadastrar novo checkin
+                                        break;
+
+                                        case 2:
+                                            ver_CheckIn();    //função para mostrar dados cadastrados no sistema
+                                        break;    
+
+                                        case 0:
+                                        break;    
+
+                                        default:
+                                            printf("!==CARACTER INVÁLIDO==!\n\n");
+                                        break;   
+                                    }
+                                }    
+
+                                op=1;
+                            break;
+
+                            case 2:
+                                fazer_CheckOut();  // função que realiza checkout
+                            break;
+                            
+                            case 3:
+                                cadastrar_Venda();  // função para vendas de produtos
+                            break;
+                            
+                            case 4:
+                                cadastrar_Compra(); //função para compra de produtos
+                            break;
+
+                            case 5:
+                                while(op!=0){                              //menu checkin
+                                    printf("|=============CAIXA============|\n"
+                                           "|1 - Montante atual            |\n"
+                                           "|2 - Ver Transações do caixa   |\n"
+                                           "|0 - Voltar                    |\n"
+                                           "|Digite uma opção para prosseguir: ");
+                                    scanf("%d",&op);
+                                    system("clear");
+
+                                    switch(op){
+
+                                        case 1:
+                                            ver_Caixa();   //função para mostrar valor em caixa
+                                        break;
+
+                                        case 2: 
+                                            ver_movCaixa();  //função para mostrar movimentação do caixa
+                                        break;    
+
+                                        case 0:
+                                        break;    
+
+                                        default:
+                                            printf("!==CARACTER INVÁLIDO==!\n\n");
+                                        break;   
+                                    }
+                                }    
+
+                                op=1;
+                            break;
+                            
+                            case 6:
+                                while(op!=0){                              //menu checkin
+                                    printf("|========CONTAS A RECEBER======|\n"
+                                           "|1 - Dar Baixa em Nota         |\n"
+                                           "|2 - Ver Notas Cadastradas     |\n"
+                                           "|0 - Voltar                    |\n"
+                                           "|Digite uma opção para prosseguir: ");
+                                    scanf("%d",&op);
+                                    system("clear");
+
+                                    switch(op){
+
+                                        case 1:
+                                            receber_Nota();    //função para cadastrar novo checkin
+                                        break;
+
+                                        case 2:
+                                            ver_ContasReceber();    //função para mostrar dados cadastrados no sistema
+                                        break;    
+
+                                        case 0:
+                                        break;    
+
+                                        default:
+                                            printf("!==CARACTER INVÁLIDO==!\n\n");
+                                        break;   
+                                    }
+                                }    
+
+                                op=1;
+                            break;
+                            
+                            case 7:
+                                while(op!=0){                              //menu checkin
+                                    printf("|========CONTAS A PAGAR======|\n"
+                                           "|1 - Dar Baixa em Nota         |\n"
+                                           "|2 - Ver Notas Cadastradas     |\n"
+                                           "|0 - Voltar                    |\n"
+                                           "|Digite uma opção para prosseguir: ");
+                                    scanf("%d",&op);
+                                    system("clear");
+
+                                    switch(op){
+
+                                        case 1:
+                                            pagar_Nota();    //função para cadastrar novo checkin
+                                        break;
+
+                                        case 2:
+                                            ver_ContasPagar();    //função para mostrar dados cadastrados no sistema
+                                        break;    
+
+                                        case 0:
+                                        break;    
+
+                                        default:
+                                            printf("!==CARACTER INVÁLIDO==!\n\n");
+                                        break;   
+                                    }
+                                }    
+
+                                op=1;
+                            break;
+                            
+                            case 0:
+                            break; 
+
+                            default:
+                                printf("!==CARACTER INVÁLIDO==!\n\n");
+                            break;    
+
+                        }
+                    }
+                    op=1;
                 }else{
                     printf("!==USUÁRIO NÃO POSSUI ACESSO A ESTE MÓDULO==!\n");
                 }
@@ -422,7 +592,76 @@ int main(int argc, char** argv) {
             
             case 4:
                 if(verifica_Acesso(adm,op)==1){
-                    
+                    while(op!=0){
+
+                        printf("|================RELATÓRIOS==================|\n"
+                               "|1  - Listagem de Hóspedes                   |\n"
+                               "|2  - Listagem de Acomodações                |\n"
+                               "|3  - Listagem de Reservas                   |\n"
+                               "|4  - Listagem de Movimento de Acomodações   |\n"
+                               "|5  - Listagem de Produtos de Consumo        |\n"
+                               "|6  - Listagem de Produtos em Estoque Mínimo |\n"
+                               "|7  - Listagem de Vendas                     |\n"
+                               "|8  - Listagem de Contas a Receber           |\n"
+                               "|9  - Listagem de Contas a Pagar             |\n"
+                               "|10 - Listagem de Movimentação de Caixa      |\n"
+                               "|0  - Voltar                                 |\n"
+                               "|Digite uma opção para prosseguir: ");
+                        scanf("%d",&op);
+                        system("clear");
+
+                        switch(op){
+
+                            case 1:
+                                lista_Hospedes();  //função para realizar relatorio do hospede
+                            break;
+                            
+                            case 2:
+                                lista_Acomodacoes(); //função para realizar relatorio das acomodações
+                            break;
+                            
+                            case 3:
+                                lista_Reservas();   //função para realizar relatorio das reservas
+                            break;
+                            
+                            case 4:
+                                lista_movAcomodacoes(); //função para realizar relatorio do movimento das acomodações
+                            break;
+                            
+                            case 5:
+                                lista_Produtos();   //função para realizar relatorio dos produtos
+                            break;
+                            
+                            case 6:
+                                lista_EstoqueMin(); //função para realizar relatorio dos produtos em estoque minimo
+                            break;
+                            
+                            case 7:
+                                lista_Vendas();     //função para realizar relatorio das vendas
+                            break;
+                            
+                            case 8:
+                                lista_ContasReceber(); //função para realizar relatorio das contas a receber
+                            break;
+                            
+                            case 9:
+                                lista_ContasPagar();    //função para realizar relatorio das contas a pagar
+                            break;
+                            
+                            case 10:
+                                lista_movCaixa();       //função para realizar relatorio do movimento do caixa
+                            break;
+                            
+                            case 0:
+                            break;
+                            
+                            default:
+                                printf("!==CARACTER INVÁLIDO==!\n\n");
+                            break;
+                            
+                        }
+                    }
+                    op=1;
                 }else{
                     printf("!==USUÁRIO NÃO POSSUI ACESSO A ESTE MÓDULO==!\n");
                 }
@@ -430,7 +669,32 @@ int main(int argc, char** argv) {
                 
             case 5:
                 if(verifica_Acesso(adm,op)==1){
-                    
+                    while(op!=0){    
+                        printf("|===IMPORTAÇÃO/EXPORTAÇÃO DE DADOS===|\n"
+                           "|1 - Importar Dados                  |\n"
+                           "|2 - Exportar Dados                  |\n"
+                           "|0 - Voltar                          |\n"
+                           "|Digite uma opção para prosseguir: ");
+                        scanf("%d",&op);
+                        system("clear");
+
+                        switch(op){
+
+                            case 1:
+                            case 2:
+                                menu_Tabelas(op);
+                            break;
+                            
+                            case 0:
+                            break; 
+
+                            default:
+                                printf("!==CARACTER INVÁLIDO==!\n\n");
+                            break;    
+
+                        }
+                    }
+                    op=1;
                 }else{
                     printf("!==USUÁRIO NÃO POSSUI ACESSO A ESTE MÓDULO==!\n");
                 }

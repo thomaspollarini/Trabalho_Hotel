@@ -1,0 +1,20 @@
+<dados>
+	<tabela=produto>
+		<registro>
+			<codigo>1</codigo>
+			<descricao>Bala</descricao>
+			<venda>3.85</venda>
+			<custo>2.50</custo>
+			<estoque_minimo>20</estoque_minimo>
+			<estoque>23</estoque>
+		</registro>
+		<registro>
+			<codigo>2</codigo>
+			<descricao>Chocolate</descricao>
+			<venda>4.40</venda>
+			<custo>3.00</custo>
+			<estoque_minimo>15</estoque_minimo>
+			<estoque>27</estoque>
+		</registro>
+	</tabela>
+</dados>

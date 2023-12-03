@@ -309,16 +309,7 @@ void excluir_Operador(operador *adm){
             lenOpe--;
 
             if(lenOpe==0){  //caso seja a última conta apaga o arquivo diretamente
-                
-                int result;
-                FILE *arq=fopen(".//Bd//Texto.txt","r");  //verifica tipo de arquivo
-                
-                if(arq!=NULL){
-                    fclose(arq);
-                    result = remove(".//Bd//Operadores.txt");
-                }else{
-                    result = remove(".//Bd//Operadores.bin");
-                }
+                int result = remove(".//Bd//Operadores.txt");
 
                 if(result!=0){
                     printf("!===ERRO NA REMOÇÃO DO ARQUIVO===!\n\n");
@@ -444,15 +435,13 @@ void cadastrar_Hotel(){
     setbuf(stdin, NULL);
     printf("Telefone do responsável:");
     scanf("%[^\n]s",bdHotel.telefoneResp);
-    
+  
+    printf("Horário de Check-in(formato 24h):");
+    scanf("%d",&bdHotel.horaCheckin);
+  
     printf("Horário de Check-out(formato 24h):");
     scanf("%d",&bdHotel.horaCheckout);
-    
-    do{
-        printf("Horário de Check-in(formato 24h):");
-        scanf("%d",&bdHotel.horaCheckin);
-    }while(bdHotel.horaCheckin<bdHotel.horaCheckout);
-        
+  
     printf("Margem de lucro dos produtos vendidos(em porcentagem):");
     scanf("%f",&bdHotel.margem);
     system("clear");
@@ -471,14 +460,11 @@ void editar_Hotel(){
     
     do{
         printf("|==========DADOS HOTEL=========|\n"
-           "|1 - Nome: %s\n|2 - Telefone: %s\n|3 - Email: %s\n|4 - Nome Responsavel: %s\n"
-           "|5 - Telefone Responsavel: %s\n|6 - Endereço: %s,%d (%s) - %s, %s - %s\n"
-           "|7 - Hora do CheckIn: %dh\n|8 - Hora do checkOut: %dh\n|9 - Margem de Lucro: %.2f%%\n"
-           "|10 - Inscrição Estadual: %d\n|11 - Razão Social: %s\n|12 - CNPJ: %s\n|13 - Continuar\n"
-           "|0 - Cancelar\n|Digite uma opção: ",bdHotel.nome,bdHotel.telefone,bdHotel.email,bdHotel.nomeResp,bdHotel.telefoneResp
-        ,bdHotel.end.rua,bdHotel.end.num,bdHotel.end.comp,bdHotel.end.bairro,bdHotel.end.cidade,bdHotel.end.estado
-        ,bdHotel.horaCheckin,bdHotel.horaCheckout,bdHotel.margem
-        ,bdHotel.inscEstadual,bdHotel.razaoSocial,bdHotel.cnpj);
+           "|1 - Nome\n|2 - Telefone\n|3 - Email\n|4 - Nome Responsavel\n"
+           "|5 - Telefone Responsavel\n|6 - Endereço\n"
+           "|7 - Hora do CheckIn\n|8 - Hora do checkOut\n|9 - Margem de Lucro\n"
+           "|10 - Inscrição Estadual\n|11 - Razão Social\n|12 - CNPJ\n|13 - Continuar\n"
+           "|0 - Cancelar\n|Digite uma opção: ");
         scanf("%d",&op);
         
         
@@ -540,18 +526,14 @@ void editar_Hotel(){
             break;
     
             case 7:
-                do{
-                    printf("\nHora do CheckIn: ");
-                    scanf("%d",&bdHotel.horaCheckin);
-                }while(bdHotel.horaCheckin<bdHotel.horaCheckout);
+                printf("\nHora do CheckIn: ");
+                scanf("%d",&bdHotel.horaCheckin);
                 system("clear");
             break;
     
             case 8:
-                do{
-                    printf("\nHora do CheckOut: ");
-                    scanf("%d",&bdHotel.horaCheckout);
-                }while(bdHotel.horaCheckin<bdHotel.horaCheckout);
+                printf("\nHora do CheckOut: ");
+                scanf("%d",&bdHotel.horaCheckout);
                 system("clear");
             break;
     
@@ -617,7 +599,7 @@ void ver_Hotel(){
     ,bdHotel.inscEstadual,bdHotel.razaoSocial,bdHotel.cnpj);  //mostra dados
     
     scanf("%d",&op);
-    system("clear");
+    
     return;
 }
 
@@ -638,7 +620,7 @@ void cadastrar_Hospede(){
         
         if(novo.cod<0){
             system("clear");
-            printf("!===CÓDIGO DO HÓSPEDE DEVE SER POSITIVO===!\n\n");
+            printf("!===CÓDIGO DA CONTA DEVE SER POSITIVO===!\n\n");
             continue;
         }
                                                             //ALGORITMO PARA VALIDAR CÓDIGOS
@@ -895,7 +877,7 @@ void excluir_Hospede(){
     while(op!=0){ //mostra dados da conta
         printf("|====DADOS DO HÓSPEDE====|\nNome: %s\nEndereço: %s, %d - %s, %s, %s-%s\nCPF: %s\n"
                 "Telefone: %s\nE-mail: %s\nGênero: %s\nEstado Civil: %s\nData de nascimento: %s\n"
-                "|1 - Apagar hóspede\n|0 - Cancelar\nDigite uma opção: "
+                "|1 - Apagar conta\n|0 - Cancelar\nDigite uma opção: "
                ,bdHos[i].nome,bdHos[i].end.rua,bdHos[i].end.num,bdHos[i].end.comp,bdHos[i].end.bairro,bdHos[i].end.cidade,bdHos[i].end.estado
                ,bdHos[i].cpf,bdHos[i].telefone,bdHos[i].email,bdHos[i].sexo,bdHos[i].civil,bdHos[i].nasc);
         scanf("%d",&op);
@@ -908,16 +890,8 @@ void excluir_Hospede(){
             lenHos--;
 
             if(lenHos==0){ //remove arquivo direto caso seja o último
-                int result;
-                FILE *arq=fopen(".//Bd//Texto.txt","r"); //verifica tipo de arquivo
-                
-                if(arq!=NULL){
-                    fclose(arq);
-                    result = remove(".//Bd//Hospedes.txt");
-                }else{
-                    result = remove(".//Bd//Hospedes.bin");
-                }
-                
+                int result = remove(".//Bd//Hospedes.txt");
+
                 if(result!=0){
                     printf("!===ERRO NA REMOÇÃO DO ARQUIVO===!\n\n");
                     free(bdHos);
@@ -1004,7 +978,7 @@ void cadastrar_Categoria(){
         
         if(novo.cod<0){
             system("clear");
-            printf("!===CÓDIGO DA CATEGORIA DEVE SER POSITIVO===!\n\n");
+            printf("!===CÓDIGO DA CONTA DEVE SER POSITIVO===!\n\n");
             continue;
         }
                                                             //ALGORITMO PARA VALIDAR CÓDIGOS
@@ -1177,7 +1151,7 @@ void excluir_Categoria(){
     op=1;
     while(op!=0){ //menu de dados
        printf("|====DADOS DA CATEGORIA====|\nDescrição: %s\nValor: %.2f\nNº Adultos: %d\nNº Crianças: %d\n"
-               "|1 - Apagar categoria\n|0 - Cancelar\nDigite uma opção: "
+               "|1 - Apagar conta\n|0 - Cancelar\nDigite uma opção: "
                ,bdCat[i].desc,bdCat[i].vlr,bdCat[i].adulto,bdCat[i].crianca);
         scanf("%d",&op);
         system("clear");
@@ -1254,15 +1228,7 @@ void excluir_Categoria(){
             lenCat--;
 
             if(lenCat==0){ //caso seja a última categora remove arquivo
-                int result;
-                FILE *arq=fopen(".//Bd//Texto.txt","r");
-                                        //verifica tipo de arquivo
-                if(arq!=NULL){  
-                    fclose(arq);
-                    result = remove(".//Bd//Categorias.txt");
-                }else{
-                    result = remove(".//Bd//Categorias.bin");
-                }
+                int result = remove(".//Bd//Categorias.txt");
 
                 if(result!=0){
                     printf("!===ERRO NA REMOÇÃO DO ARQUIVO===!\n\n");
@@ -1346,7 +1312,7 @@ void cadastrar_Acomodacao(){
         
         if(novo.cod<0){
             system("clear");
-            printf("!===CÓDIGO DA ACOMODAÇÃO DEVE SER POSITIVO===!\n\n");
+            printf("!===CÓDIGO DA CONTA DEVE SER POSITIVO===!\n\n");
             continue;
         }
                                                             //ALGORITMO PARA VALIDAR CÓDIGOS
@@ -1565,7 +1531,7 @@ void excluir_Acomodacao(){
     op=1;
     while(op!=0){ //Dados
       printf("|====DADOS DA ACOMODAÇÃO====|\nDescrição: %s\nFacilidades: %s\nCategoria: %d\n"
-               "|1 - Apagar acomodação\n|0 - Cancelar\nDigite uma opção: "
+               "|1 - Apagar conta\n|0 - Cancelar\nDigite uma opção: "
                ,bdAco[i].desc,bdAco[i].fac,bdAco[i].cat);
         scanf("%d",&op);
         system("clear");
@@ -1577,15 +1543,8 @@ void excluir_Acomodacao(){
             lenAco--;
 
             if(lenAco==0){ //se última, remove arquivo
-                int result;
-                FILE *arq=fopen(".//Bd//Texto.txt","r"); //verifica tipo de arquivo
-                
-                if(arq!=NULL){
-                    fclose(arq);
-                    result = remove(".//Bd//Acomodacoes.txt");
-                }else{
-                    result = remove(".//Bd//Acomodacoes.bin");
-                }
+                int result = remove(".//Bd//Acomodacoes.txt");
+
                 if(result!=0){
                     printf("!===ERRO NA REMOÇÃO DO ARQUIVO===!\n\n");
                     free(bdAco);
@@ -1659,7 +1618,7 @@ void cadastrar_Produto(){
         
         if(novo.cod<0){
             system("clear");
-            printf("!===CÓDIGO DO PRODUTO DEVE SER POSITIVO===!\n\n");
+            printf("!===CÓDIGO DA CONTA DEVE SER POSITIVO===!\n\n");
             continue;
         }
                                                             //ALGORITMO PARA VALIDAR CÓDIGOS
@@ -1874,7 +1833,7 @@ void excluir_Produto(){
     op=1;
     while(op!=0){   //DADOS
         printf("|====DADOS DO PRODUTO====|\nDescrição: %s\nEstoque mínimo: %d\nEstoque atual: %d\n"
-                "Preço de Custo: %.2f\nPreço de Venda: %.2f\n|1 - Apagar produto\n|0 - Cancelar\nDigite uma opção: "
+                "Preço de Custo: %.2f\nPreço de Venda: %.2f\n|1 - Apagar conta\n|0 - Cancelar\nDigite uma opção: "
                ,bdPro[i].desc,bdPro[i].estmin,bdPro[i].est,bdPro[i].custo,bdPro[i].venda);
         scanf("%d",&op);
         system("clear");
@@ -1886,15 +1845,8 @@ void excluir_Produto(){
             lenPro--;
 
             if(lenPro==0){ //se último, remove arquivo
-                int result;
-                FILE *arq=fopen(".//Bd//Texto.txt","r");
-                                            //verifica tipo de arquivo
-                if(arq!=NULL){
-                    fclose(arq);
-                    result = remove(".//Bd//Produtos.txt");
-                }else{
-                    result = remove(".//Bd//Produtos.bin");
-                }
+                int result = remove(".//Bd//Produtos.txt");
+
                 if(result!=0){
                     printf("!===ERRO NA REMOÇÃO DO ARQUIVO===!\n\n");
                     free(bdPro);
@@ -1970,7 +1922,7 @@ void cadastrar_Fornecedor(){
         
         if(novo.cod<0){
             system("clear");
-            printf("!===CÓDIGO DO FORNECEDOR DEVE SER POSITIVO===!\n\n");
+            printf("!===CÓDIGO DA CONTA DEVE SER POSITIVO===!\n\n");
             continue;
         }
                                                             //ALGORITMO PARA VALIDAR CÓDIGOS
@@ -2213,7 +2165,7 @@ void excluir_Fornecedor(){
     while(op!=0){  //dados
         printf("|====DADOS DO FORNECEDOR====|\nNome: %s\nEndereço: %s, %d - %s, %s, %s-%s\nCNPJ: %s\n"
                 "Telefone: %s\nE-mail: %s\nRazão Social: %s\nInscrição Estadual: %d\n"
-                "|1 - Apagar fornecedor\n|0 - Cancelar\nDigite uma opção: "
+                "|1 - Apagar conta\n|0 - Cancelar\nDigite uma opção: "
                ,bdFor[i].nome,bdFor[i].end.rua,bdFor[i].end.num,bdFor[i].end.comp,bdFor[i].end.bairro,bdFor[i].end.cidade,bdFor[i].end.estado
                ,bdFor[i].cnpj,bdFor[i].telefone,bdFor[i].email,bdFor[i].razaoSocial,bdFor[i].inscEstadual);
         scanf("%d",&op);
@@ -2226,15 +2178,8 @@ void excluir_Fornecedor(){
             lenFor--;
 
             if(lenFor==0){ //se último, remove arquivo
-                int result;
-                FILE *arq=fopen(".//Bd//Texto.txt","r");  //verifica tipo de arquivo
-                
-                if(arq!=NULL){
-                    fclose(arq);
-                    result = remove(".//Bd//Fornecedores.txt");
-                }else{
-                    result = remove(".//Bd//Fornecedores.bin");
-                }
+                int result = remove(".//Bd//Fornecedores.txt");
+
                 if(result!=0){
                     printf("!===ERRO NA REMOÇÃO DO ARQUIVO===!\n\n");
                     free(bdFor);
@@ -2303,225 +2248,11 @@ void ver_Fornecedores(){
 }
 
 ////função para cadastrar nova reserva
-void cadastrar_Reserva(){
+void cadastrar_Reservas(){
     
-    reserva *bdRes=dados_Reservas(bdRes),novo; //carrega Banco de dados de reservas
-    int lenRes=len_Res(bdRes),i,op; //tamanho do BD
-    
-    do{
-        printf("Digite o código da reserva: ");
-        scanf("%d",&novo.cod);
-        
-        if(novo.cod<0){
-            system("clear");
-            printf("!===CÓDIGO DA RESERVA DEVE SER POSITIVO===!\n\n");
-            continue;
-        }
-                                                            //ALGORITMO PARA VALIDAR CÓDIGOS
-        i=0;                                                //IMPOSSIBILITA REPETIÇÃO DE CÓDIGOS
-        while(bdRes[i].cod!=novo.cod && i<lenRes){
-            i++;
-        }
-        
-        if(i!=lenRes){     
-            printf("!===CÓDIGO JÁ ESTÁ EM USO===!\n\n"
-                   "Digite 0 para cancelar o cadastro:  ");
-            scanf("%d",&op);
-            system("clear"); 
-            
-            if(op==0){
-                printf("!===CADASTRO CANCELADO===!\n\n");
-                free(bdRes);
-                return;
-            }
-        }
-    }while(i!=lenRes);
-    
-    pesquisa busca;//variavel que armazenará dados de filtro para reserva
-    int status=filtro_Reserva(&busca); //função para coletar filtro
-    if(status==1){//se retorno == 1 cancela reserva
-        return;
-    }
-    int j,dataI_Res,dataF_Res,dataI_busca,dataF_busca,cont=0,*vet;
-    
-    vet=calloc(1,sizeof(int)); //inicializa vetor para armazenar quartos disponiveis
-    
-    dataI_busca= busca.data_pes.ano_i*10000+busca.data_pes.mes_i*100+busca.data_pes.dia_i;   //transforma data em inteiro para comparar maior
-    dataF_busca= busca.data_pes.ano_f*10000+busca.data_pes.mes_f*100+busca.data_pes.dia_f;
-    
-    acomodacao *bdAco=dados_Acomodacoes(bdAco);  //carrega BD acomodações
-    int lenAco=len_Aco(bdAco);
-    
-    categoria *bdCat=dados_Categorias(bdCat); //carrega BD
-    int lenCat=len_Cat(bdCat); //tamanho
-    
-    for(i=0;i<lenAco;i++){
-        if(strcmp(busca.fac,"")!=0 && strcmp(busca.fac,bdAco[i].fac)!=0){ //se filtro ativo, e acomodação não for valida, pula ciclo
-            continue;
-        }
-        if(busca.cat!=-1 && bdAco[i].cat!=bdCat[busca.cat].cod){  //se filtro ativo, e categoria não for valida, pula ciclo
-            continue;
-        }
-        if(busca.adulto!=-1){  //se filtro ativo
-            j=0;
-            while(j<lenCat && bdAco[i].cat != bdCat[j].cod){   //acha categoria relacionada a acomodação
-                j++;
-            }
-            
-            if(busca.adulto!=bdCat[j].adulto){  //e numero de adultos da categoria não for válido, pula ciclo
-                continue;
-            }
-        }
-        if(busca.crianca!=-1){  //se filtro ativo
-            j=0;
-            while(j<lenCat && bdAco[i].cat != bdCat[j].cod){  //acha categoria relacionada a acomodação
-                j++;
-            }
-            if(j!=lenCat && busca.crianca!=bdCat[j].crianca){  //e numero de crianças da categoria não for válido, pula ciclo
-                continue;
-            }
-        }
-        
-        for(j=0;j<lenRes;j++){  //verifica reservas do quarto atual, se data for sobreposta, pula ciclo
-            if(bdRes[j].quarto==bdAco[i].cod){
-                dataI_Res= bdRes[i].periodo.ano_i*10000+bdRes[i].periodo.mes_i*100+bdRes[i].periodo.dia_i;   //transforma data em inteiro para comparar maior
-                dataF_Res= bdRes[i].periodo.ano_f*10000+bdRes[i].periodo.mes_f*100+bdRes[i].periodo.dia_f;
-                
-                if((dataI_busca>dataI_Res && dataI_busca<dataF_Res) || (dataF_busca>dataI_Res && dataF_busca<dataF_Res)){
-                    break;
-                }
-            }
-        }
-        
-        if(j!=lenRes){
-            continue;
-        }
-        
-        printf("|Código: %d\n|Descrição: %s\n|Facilidades: %s\n|Categoria: %d"
-               "\n__________________________________\n\n"
-               ,bdAco[i].cod,bdAco[i].desc,bdAco[i].fac,bdAco[i].cat);
-        cont++;
-        
-        vet=realloc(vet,cont*sizeof(int));
-        vet[cont-1]=bdAco[i].cod;
-    }
-    do{
-        printf("Digite o código da acomodação que deseja reservar (-1 para cancelar reserva):");
-        scanf("%d",&op);
-        
-        if(op==-1){
-            system("clear");
-            printf("!====RESERVA CANCELADA====!\n\n");
-            return;
-        }
-        
-        for(i=0;i<cont;i++){
-            if(op==vet[i]){
-                novo.quarto=vet[i];
-                novo.periodo=busca.data_pes;
-                cadastrar_ReservaBD(novo);
-                return;
-            }
-        }
-        
-        printf("!===ERRO QUARTO NÃO DISPONÍVEL===!");
-    }while(1);
-}
-
-//função para excluir reserva
-void excluir_Reserva(){
-    
-    reserva *bdRes=dados_Reservas(bdRes); //carrega BD
-    int lenRes=len_Res(bdRes);
-    
-    int i,j,op=1,cod;
-    
-    if(lenRes==0){
-        printf("!===NENHUMA RESERVA CADASTRADA===!\n\n");
-        return;
-    }
-    
-    do{
-        printf("Digite o código da reserva: ");
-        scanf("%d",&cod);                                   
-                                                            //ALGORITMO PARA VALIDAR CÓDIGOS
-        i=0;                                                //PROCURA REPETIÇÃO DE CÓDIGOS
-        while(bdRes[i].cod!=cod && i<lenRes){
-            i++;
-        }
-        
-        if(i==lenRes){     
-            printf("!===CÓDIGO NÃO ESTÁ EM USO===!\n\n"
-                   "Digite 0 para cancelar procura:  ");
-            scanf("%d",&op);
-            system("clear"); 
-            
-            if(op==0){
-                printf("!===EXCLUSÃO CANCELADA===!\n\n");
-                free(bdRes);
-                return;
-            }
-            
-        }
-    }while(i==lenRes);
-    
-    op=1;
-    while(op!=0){ //Dados
-      printf("|====DADOS DA RESERVA====|\nQuarto: %d\nData: %d/%d/%d - %d/%d/%d\n"
-               "|1 - Apagar reserva\n|0 - Cancelar\nDigite uma opção: "
-               ,bdRes[i].quarto,bdRes[i].periodo.dia_i,bdRes[i].periodo.mes_i,bdRes[i].periodo.ano_i
-              ,bdRes[i].periodo.dia_f,bdRes[i].periodo.mes_f,bdRes[i].periodo.ano_f);
-        scanf("%d",&op);
-        system("clear");
-        
-        if(op==1){
-        
-            system("clear");
-        
-            lenRes--;
-
-            if(lenRes==0){ //se última, remove arquivo
-                int result;
-                FILE *arq=fopen(".//Bd//Texto.txt","r");
-                
-                if(arq!=NULL){    //verifica tipo de arquivo
-                    fclose(arq);
-                    result = remove(".//Bd//Reservas.txt");
-                }else{
-                    result = remove(".//Bd//Reservas.bin");
-                }
-                if(result!=0){
-                    printf("!===ERRO NA REMOÇÃO DO ARQUIVO===!\n\n");
-                    free(bdRes);
-                    return;
-                }else{
-                    printf("!===ARQUIVO REMOVIDO COM SUCESSO===!\n\n");
-                    free(bdRes);
-                    inicializa_Arquivos(); //recria
-                    return;
-                }
-            }
-
-            for(j=i;j<lenRes;j++){ //move dados a esquerda
-                bdRes[j].cod=bdRes[j+1].cod;
-                bdRes[j].quarto=bdRes[j+1].quarto;
-                bdRes[j].periodo.dia_i=bdRes[j+1].periodo.dia_i;
-                bdRes[j].periodo.mes_i=bdRes[j+1].periodo.mes_i;
-                bdRes[j].periodo.ano_i=bdRes[j+1].periodo.ano_i;
-                bdRes[j].periodo.dia_f=bdRes[j+1].periodo.dia_f;
-                bdRes[j].periodo.mes_f=bdRes[j+1].periodo.mes_f;
-                bdRes[j].periodo.ano_f=bdRes[j+1].periodo.ano_f;                
-            }
-
-            atualizar_ReservaBD(bdRes,lenRes); //salva alteração no arquivo
-            free(bdRes);
-
-            return;
-        }
-        
-        system("clear");
-        free(bdRes);
-        printf("|====EXCLUSÃO CANCELADA====|\n\n");
+    pesquisa busca;
+    int status=filtro_Reserva(&busca);
+    if(status==1){
         return;
     }
 }

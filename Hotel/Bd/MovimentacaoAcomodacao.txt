@@ -1,0 +1,4 @@
+Código;CódigoAcomodação;NúmeroDiarias;Valor
+1;1;7;2033.50
+2;1;7;2033.50
+3;1;41;11910.50

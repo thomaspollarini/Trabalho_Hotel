@@ -1,0 +1,2 @@
+Código,Código do Produto,Forma de Pagamento,Valor
+4,2,credito,9.50

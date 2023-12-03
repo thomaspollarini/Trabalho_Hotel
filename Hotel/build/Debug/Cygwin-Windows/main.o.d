@@ -1,4 +1,6 @@
-build/Debug/Cygwin-Windows/main.o: main.c bancoDados.h service.h util.h
+build/Debug/Cygwin-Windows/main.o: main.c bancoDados.h serviceCadastros.h \
+ util.h relatorio.h
 bancoDados.h:
-service.h:
+serviceCadastros.h:
 util.h:
+relatorio.h:

@@ -1,0 +1,2 @@
+Código,Código do Fornecedor,Parcela,Valor,Data
+2,2,3,-10.00,25/11/2023

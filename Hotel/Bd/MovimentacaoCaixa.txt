@@ -1,0 +1,9 @@
+Código;Valor;Tipo;FormaDePagamento;Data
+1;2033.50;lancamento;dinheiro;18;2;2023
+2;2033.50;lancamento;debito;18;3;2023
+3;11910.50;lancamento;credito;20;3;2023
+4;23.99;lancamento;dinheiro;20;3;2023
+5;-89.00;Retirada;Caixa;19;10;2023
+6;-15.00;Retirada;Caixa;22;10;2023
+7;7.70;lancamento;debito;23;10;2023
+8;-35.00;Retirada;caixa;30;10;2023

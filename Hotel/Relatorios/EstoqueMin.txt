@@ -1,0 +1,2 @@
+Código,Descrição,EstoqueMin,Estoque,Custo,Venda
+1,Bala,20,19,2.50,3.85

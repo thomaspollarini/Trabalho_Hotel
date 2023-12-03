@@ -1,0 +1,128 @@
+<dados>
+	<tabela=hotel>
+		<registro>
+			<nome>hotel2</nome>
+			<telefone>542412</telefone>
+			<email>@gmaols</email>
+			<nome_responsavel>thomas</nome_responsavel>
+			<telefone_responsavel>433435</telefone_responsavel>
+			<endereco>av,393,eletro,cenr,divii,mg</endereco>
+			<hora_checkin>12</hora_checkin>
+			<hora_checkout>10</hora_checkout>
+			<margem>15</marge>
+			<inscricao_estadual>234</inscricao_estadual>
+			<razao_social>4324</razao_social>
+			<cnpj>232234</cnpj>
+		</registro>
+	</tabela>
+	<tabela=hospede>
+		<registro>
+			<codigo>1</codigo>
+			<nome>Fulano de Tal</nome>
+			<endereco>Rua XYZ, 123, complemento , Bairro QWER, Formiga, MG</endereço>
+			<cpf>111.111.111-11</cpf>
+			<telefone>3733213321</telefone>
+			<email>fulanodetal@fulanodetal.com.br</email>
+			<sexo>M</sexo>
+			<est_civil>Casado</est_civil>
+			<data_nascimento>11/11/1988</data_nascimento>
+		</registro>
+		<registro>
+			<codigo>2</codigo>
+			<nome>Ciclana Beltrano</nome>
+			<endereco>Rua lkjdsfu, 1365423,complemento , Bairro qk2u3yi, Cidade, MG</endereço>
+			<cpf>111.111.111-12</cpf>
+			<telefone>3733646821</telefone>
+			<email>ciclanafulano@ ciclanofulano.com.br</email>
+			<sexo>F</sexo>
+			<est_civil>Casada</est_civil>
+			<data_nascimento>11/05/1958</data_nascimento>
+		</registro>
+	</tabela>
+	<tabela=acomodacao>
+		<registro>
+			<codigo>2</codigo>
+			<descricao>542412</descricao>
+			<facilidade>skla</facilidade>
+			<categoria>3</categoria>
+		</registro>
+		<registro>
+			<codigo>1</codigo>
+			<descricao>523</descricao>
+			<facilidade>dsfsfg</facilidade>
+			<categoria>1</categoria>
+		</registro>
+	</tabela>
+	<tabela=categoria>
+		<registro>
+			<codigo>2</codigo>
+			<descricao>542412</descricao>
+			<valor>249.90</valor>
+			<adulto>3</adulto>
+			<crianca>3</crianca>
+		</registro>
+		<registro>
+			<codigo>1</codigo>
+			<descricao>523</descricao>
+			<valor>150.50</valor>
+			<adulto>2</adulto>
+			<crianca>0</crianca>
+		</registro>
+	</tabela>
+	<tabela=produto>
+		<registro>
+			<codigo>2</codigo>
+			<descricao>542412</descricao>
+			<venda>9.90</venda>
+			<custo>3.90</custo>
+			<estoque_minimo>3</estoque_minimo>
+			<estoque>5</estoque>
+		</registro>
+		<registro>
+			<codigo>1</codigo>
+			<descricao>523</descricao>
+			<venda>5.90</venda>
+			<custo>1.90</custo>
+			<estoque_minimo>1</estoque_minimo>
+			<estoque>7</estoque>
+		</registro>
+	</tabela>
+	<tabela=fornecedor>
+		<registro>
+			<codigo>1</codigo>
+			<nome>Fulano de Tal</nome>
+			<endereco>Rua XYZ, 123, complemento , Bairro QWER, Formiga, MG</endereço>
+			<telefone>3733213321</telefone>
+			<email>fulanodetal@fulanodetal.com.br</email>
+			<inscricao_estadual>234</inscricao_estadual>
+			<razao_social>4324</razao_social>
+			<cnpj>232234</cnpj>
+		</registro>
+		<registro>	
+			<codigo>2</codigo>
+			<nome>Ciclana Beltrano</nome>
+			<endereco>Rua lkjdsfu, 1365423,complemento , Bairro qk2u3yi, Cidade, MG</endereço>
+			<telefone>3733646821</telefone>
+			<email>ciclanafulano@ ciclanofulano.com.br</email>
+			<inscricao_estadual>2234</inscricao_estadual>
+			<razao_social>43124</razao_social>
+			<cnpj>23223454</cnpj>
+		</registro>
+	</tabela>
+	<tabela=operador>
+		<registro>
+			<codigo>1</codigo>
+			<nome>thomas</nome>
+			<usuario>tom</usuario>
+			<senha>123</senha>
+			<acesso>11111</acesso>
+		</registro>
+		<registro>
+			<codigo>2</codigo>
+			<nome>jean</nome>
+			<usuario>JC</usuario>
+			<senha>321</senha>
+			<acesso>10101</acesso>
+		</registro>
+	</tabela>
+</dados>

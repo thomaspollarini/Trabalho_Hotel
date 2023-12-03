@@ -36,8 +36,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/bancoDados.o \
+	${OBJECTDIR}/exportacao.o \
+	${OBJECTDIR}/importacao.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/service.o \
+	${OBJECTDIR}/relatorio.o \
+	${OBJECTDIR}/serviceCadastros.o \
+	${OBJECTDIR}/serviceTransacoes.o \
 	${OBJECTDIR}/util.o
 
 
@@ -70,15 +74,35 @@ ${OBJECTDIR}/bancoDados.o: bancoDados.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bancoDados.o bancoDados.c
 
+${OBJECTDIR}/exportacao.o: exportacao.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/exportacao.o exportacao.c
+
+${OBJECTDIR}/importacao.o: importacao.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/importacao.o importacao.c
+
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
-${OBJECTDIR}/service.o: service.c
+${OBJECTDIR}/relatorio.o: relatorio.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/service.o service.c
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/relatorio.o relatorio.c
+
+${OBJECTDIR}/serviceCadastros.o: serviceCadastros.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/serviceCadastros.o serviceCadastros.c
+
+${OBJECTDIR}/serviceTransacoes.o: serviceTransacoes.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/serviceTransacoes.o serviceTransacoes.c
 
 ${OBJECTDIR}/util.o: util.c
 	${MKDIR} -p ${OBJECTDIR}

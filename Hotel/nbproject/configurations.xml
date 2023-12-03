@@ -5,15 +5,23 @@
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
       <itemPath>bancoDados.h</itemPath>
-      <itemPath>service.h</itemPath>
+      <itemPath>exportacao.h</itemPath>
+      <itemPath>importacao.h</itemPath>
+      <itemPath>relatorio.h</itemPath>
+      <itemPath>serviceCadastros.h</itemPath>
+      <itemPath>serviceTransacoes.h</itemPath>
       <itemPath>util.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
       <itemPath>bancoDados.c</itemPath>
+      <itemPath>exportacao.c</itemPath>
+      <itemPath>importacao.c</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>service.c</itemPath>
+      <itemPath>relatorio.c</itemPath>
+      <itemPath>serviceCadastros.c</itemPath>
+      <itemPath>serviceTransacoes.c</itemPath>
       <itemPath>util.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -49,11 +57,27 @@
       </item>
       <item path="bancoDados.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="exportacao.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="exportacao.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="importacao.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="importacao.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="service.c" ex="false" tool="0" flavor2="0">
+      <item path="relatorio.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="service.h" ex="false" tool="3" flavor2="0">
+      <item path="relatorio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="serviceCadastros.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="serviceCadastros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="serviceTransacoes.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="serviceTransacoes.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="util.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -85,11 +109,27 @@
       </item>
       <item path="bancoDados.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="exportacao.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="exportacao.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="importacao.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="importacao.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="service.c" ex="false" tool="0" flavor2="0">
+      <item path="relatorio.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="service.h" ex="false" tool="3" flavor2="0">
+      <item path="relatorio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="serviceCadastros.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="serviceCadastros.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="serviceTransacoes.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="serviceTransacoes.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="util.c" ex="false" tool="0" flavor2="0">
       </item>

@@ -1,0 +1,11 @@
+Código;CódigoProduto;FormaDePagamento;Valor
+1;2;dinheiro;9.50
+2;2;dinheiro;9.50
+3;1;dinheiro;4.99
+4;2;credito;9.50
+5;1;debito;3.85
+6;1;debito;3.85
+7;2;credito;4.40
+8;2;credito;4.40
+9;2;credito;4.40
+10;1;credito;3.49

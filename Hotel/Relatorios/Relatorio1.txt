@@ -1,0 +1,3 @@
+Código,Nome,CPF,Telefone,Email,Sexo,Status Civil,Nascimento,Rua,Número,Complemento,Bairro,Cidade,Estado
+1,thomas,506,99815,tp@gmail,masc,casado,03/12/2002,Av 21,393,eletro,cetro,divi,mg;
+2,jean,128,1912,jclaudio1912,femi,sozinho,19/12/2002,sla,2,perto do samel,aguas,formiga,mg;

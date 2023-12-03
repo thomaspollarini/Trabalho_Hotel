@@ -22,6 +22,10 @@ extern "C" {
 #include <string.h>    
 
 typedef struct{
+    int Aco,Cat,For,Hos,Hot,Ope,Pro;
+}tabela;    
+
+typedef struct{
     int dia_i,dia_f,mes_i,mes_f,ano_i,ano_f;
 }data;
 
@@ -39,7 +43,7 @@ typedef struct{
     
     
 typedef struct{
-    int cod,quarto;
+    int cod,quarto,codHos;
     data periodo;
 }reserva;
 
@@ -52,7 +56,7 @@ typedef struct{
 typedef struct{
     int  inscEstadual,horaCheckin,horaCheckout;
     float margem;
-    char nome[50],razaoSocial[30],email[50],nomeResp[50],cnpj[15],telefone[12],telefoneResp[12];
+    char nome[50],razaoSocial[30],email[50],nomeResp[50],cnpj[20],telefone[12],telefoneResp[12];
     endereco end;
 }hotel;
 
@@ -75,7 +79,7 @@ typedef struct{
 
 typedef struct{
     int cod;
-    char nome[50],email[50],sexo[30],civil[30],nasc[30],cpf[12],telefone[12];
+    char nome[50],email[50],sexo[30],civil[30],nasc[30],cpf[20],telefone[12];
     endereco end;
 }hospede;
 
@@ -83,7 +87,52 @@ typedef struct{
         int crianca,adulto,cat;
         char fac[50];
         data data_pes;
-    }pesquisa;
+}pesquisa;
+
+typedef struct{
+    int cod;
+    float valor;
+}comanda;
+
+typedef struct{
+    int cod,reserva,pagou;
+    comanda *prod;
+}checkin;
+
+typedef struct{
+    int cod;
+    float valor;
+    char tipo[15],pag[10];
+    data dataTrans;
+}movCaixa;
+
+typedef struct{
+    int cod,parc,codChave;
+    float valor;
+    data vencimento;
+}movCartao;
+
+typedef struct{
+    int cod,qtd;
+    float vUnid;
+}compra;
+
+typedef struct{
+    int cod,codFor;
+    float vFrete,vImp,vTotal;
+    compra *prod;
+}notaEntrada;
+
+typedef struct{
+    int cod,codAco,numDia;
+    float valor;
+}movAcomodacao;
+
+typedef struct{
+    int cod,codPro;
+    float valor;
+    char pag[10];
+}venda;
 
 void inicializa_Arquivos();
 
@@ -117,6 +166,49 @@ void atualizar_FornecedorBD(fornecedor *bdFor,int lenFor);
 reserva *dados_Reservas(reserva *bdRes);
 void cadastrar_ReservaBD(reserva novo);
 void atualizar_ReservaBD(reserva *bdRes,int lenRes);
+
+checkin *dados_CheckIn(checkin *bdCIn);
+void cadastrar_CheckInBD(checkin novo);
+void atualizar_CheckInBD(checkin *bdCIn,int lenCIn);
+
+void dados_Caixa(float *caixa);
+void atualizar_CaixaBD(float caixa);
+
+movCaixa *dados_movCaixa(movCaixa *bdMovC);
+void cadastrar_movCaixaBD(movCaixa novo);
+void atualizar_movCaixaBD(movCaixa *bdMovC,int lenMovC);
+
+movAcomodacao *dados_movAcomodacao(movAcomodacao *bdMovA);
+void cadastrar_movAcomodacaoBD(movAcomodacao novo);
+void atualizar_movAcomodacaoBD(movAcomodacao *bdMovA,int lenMovA);
+
+movCartao *dados_ContasReceber(movCartao *bdCRec);
+void cadastrar_ContasReceberBD(movCartao novo);
+void atualizar_ContasReceberBD(movCartao *bdCRec,int lenCRec);
+
+venda *dados_Vendas(venda *bdVen);
+void cadastrar_VendasBD(venda novo);
+void atualizar_VendasBD(venda *bdVen,int lenVen);
+
+movCartao *dados_ContasPagar(movCartao *bdCPag);
+void cadastrar_ContasPagarBD(movCartao novo);
+void atualizar_ContasPagarBD(movCartao *bdCPag,int lenCPag);
+
+notaEntrada *dados_NotasEntrada(notaEntrada *bdNotas);
+void cadastrar_NotaEntradaBD(notaEntrada novo);
+void atualizar_NotasEntradaBD(notaEntrada *bdNotas,int lenNotas);
+
+FILE *cria_ArquivoRelatorio(FILE *arq,char *nomeArq);
+
+void relatorio_Hospedes(FILE *arq, hospede *relatorio);
+void relatorio_Acomodacoes(FILE *arq, acomodacao *relatorio);
+void relatorio_Reservas(FILE *arq, reserva *relatorio);
+void relatorio_movAcomodacoes(FILE *arq, movAcomodacao *relatorio);
+void relatorio_Produtos(FILE *arq, produto *relatorio);
+void relatorio_Vendas(FILE *arq, venda *relatorio);
+void relatorio_ContasReceber(FILE *arq, movCartao *relatorio);
+void relatorio_ContasPagar(FILE *arq, movCartao *relatorio);
+void relatorio_movCaixa(FILE *arq, movCaixa *relatorio);
 
 #ifdef __cplusplus
 }

@@ -48,8 +48,7 @@ void editar_Fornecedor();
 void excluir_Fornecedor();
 void ver_Fornecedores();
 
-void cadastrar_Reserva();
-void excluir_Reserva();
+void cadastrar_Reservas();
 void ver_Reservas();
 
 #ifdef __cplusplus

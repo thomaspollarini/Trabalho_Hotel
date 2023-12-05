@@ -1,11 +1,11 @@
 papa;Nome
-988270952;Telefone
-thomassantospallarini;Email
+54342345;Telefone
+emaillegal;Email
 thomas;Nome Responsavel
-998159626;Telefone Responsavel
-av 21 de abril;Rua
-393;Numero
-apto 302;Complemento
+5345742;Telefone Responsavel
+av 1 de maio;Rua
+322;Numero
+apto 212;Complemento
 centro;Bairro
 Divi;Cidade
 MG;Estado
@@ -13,5 +13,5 @@ MG;Estado
 8;Hora checkout
 10.00;Margem lucro
 132;Inscrição Estadual
-poll;Razão Social
+pull;Razão Social
 1234123;CNPJ

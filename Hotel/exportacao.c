@@ -6,6 +6,7 @@
 
 #include "bancoDados.h"
 #include "exportacao.h"
+#include "util.h"
 
 //função para criar arquivo
 void exporta_Arquivos(tabela verf){
@@ -19,7 +20,7 @@ void exporta_Arquivos(tabela verf){
     FILE *arq = fopen(caminho, "w");
     if (arq == NULL) {
         printf("!==ERRO AO ABRIR ARQUIVO==!\n\n");
-        return NULL;
+        return;
     }
     
     int result;

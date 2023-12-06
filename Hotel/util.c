@@ -178,7 +178,7 @@ void menu_Tabelas(int tipo){
     
     while (op != 0) {
 
-        printf("|=========TABELAS========|\n");         //MENU DINAMICO
+        printf("|=============TABELAS===========|\n");         //MENU DINAMICO
         if(verf.Hot!=-1){
             if(tipo==1){
                 printf("|1 - Hotel:          IMPORTAR   |\n");
